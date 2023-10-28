@@ -9,4 +9,4 @@ async def DownloadFile(client, message, app):
     
 async def UploadFile(client, message, app):
     print('Uploading')
-    await app.send_document(chat_id=message.chat.id, file_name="./downloads/output/*")
+    await app.send_document(chat_id=message.chat.id, document = "downloads/output/*")
