@@ -11,4 +11,8 @@ if __name__ == '__main__':
         await WaterMark(client=client, message=message)
         # print("wm")
     
+    @app.on_message(filters.command("up"))
+    async def up_command(client, message):
+        await SendFile(client=client, message=message)
+        
     app.run()

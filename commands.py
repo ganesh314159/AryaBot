@@ -20,7 +20,9 @@ async def WaterMark(client, message):
     # await app.send_message(chat_id=message.chat.id, text=f"{message}", reply_to_message_id=message.reply_to_message.id)
     await DownloadFile(client=client, message=message, app=app)
 
-
+async def SendFile(client, message):
+    print('Sending...')
+    await UploadFile(client=client, message=message, app=app)
 
 
 
