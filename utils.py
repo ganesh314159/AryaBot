@@ -7,7 +7,7 @@ async def progress(current, total, client, message):
 
 async def upload_to_gdrive(file_name):
     path = os.getcwd()+'/downloads/output/'+file_name
-    await subprocess.Popen(["gdrive", f"files upload {path}"])
+    subprocess.Popen([f"gdrive files upload {path}"])
 
 async def DownloadFile(client, message, app):
     # print('Downloading')
