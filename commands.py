@@ -24,7 +24,26 @@ async def SendFile(client, message):
     print('Sending...')
     await UploadFile(client=client, message=message, app=app)
 
-
+async def OCRPDF(client, message):
+    chat_id = message.chat.id
+    rmessid = message.reply_to_message.id
+    try:
+        file_name = message.reply_to_message.document.file_name
+        file_id = message.reply_to_message.document.file_id
+        size = message.reply_to_message.document.file_size
+    except TypeError:
+        pass
+    dmess = f'''
+File : 🗂️ {file_name} 🗂️
+Status : Downloading...📤
+Size : {(size/1048576)}MB
+Progress : 0%
+Source : 🌐 Telegram 🌐
+'''
+    await app.send_message(chat_id=chat_id, text=dmess, reply_to_message_id=rmessid)
+    await app.download_media(message = file_id, file_name = file_name, progress=update_dmess, progress_args=(message, app))
+    # Debug command
+    await app.send_message(chat_id=chat_id, text="Passed test") 
 
 
 

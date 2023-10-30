@@ -36,3 +36,17 @@ async def UploadFile(client, message, app):
         await upload_to_gdrive(i)
         print(f"Uploaded {i} Sucessfully!")
         
+async def update_dmess(current, total, message, app):
+    chat_id = message.chat.id
+    message_id = message.id
+    file_name = message.reply_to_message.document.file_name
+    size = message.reply_to_message.document.file_size
+    # progress = 
+    dmess = f'''
+File : 🗂️ {file_name} 🗂️
+Status : Downloading...📤
+Size : {(size/1048576)}MB
+Progress : {current*100 / size:.2f}%
+Source : 🌐 Telegram 🌐
+'''
+    app.edit_message_text(chat_id, message_id, text=dmess)

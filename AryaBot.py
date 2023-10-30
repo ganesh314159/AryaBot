@@ -15,4 +15,8 @@ if __name__ == '__main__':
     async def up_command(client, message):
         await SendFile(client=client, message=message)
         
+    @app.on_message(filters.command("ocr"))
+    async def ocr(client, message):
+        await OCRPDF(client=client, message=message)
+        
     app.run()
