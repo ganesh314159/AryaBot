@@ -45,8 +45,8 @@ async def update_dmess(current, total, message, app):
     dmess = f'''
 File : 🗂️ {file_name} 🗂️
 Status : Downloading...📤
-Size : {(size/1048576)}MB
-Progress : {current*100 / size:.2f}%
+Size : {(size/1048576):.2f}MB
+Progress : {(current*100 / size):.2f}%
 Source : 🌐 Telegram 🌐
 '''
-    app.edit_message_text(chat_id, message_id, text=dmess)
+    await app.edit_message_text(chat_id, message_id, text=dmess)
