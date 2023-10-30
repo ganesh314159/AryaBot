@@ -38,15 +38,16 @@ async def UploadFile(client, message, app):
         
 async def update_dmess(current, total, message, app):
     chat_id = message.chat.id
-    message_id = message.id
+    message_id = message.id+1
     file_name = message.reply_to_message.document.file_name
     size = message.reply_to_message.document.file_size
     # progress = 
     dmess = f'''
+🚩🚩🚩 ओ३म् 🚩🚩🚩
 File : 🗂️ {file_name} 🗂️
-Status : Downloading...📤
-Size : {(size/1048576):.2f}MB
-Progress : {(current*100 / size):.2f}%
+Status : Downloading... 📤
+Size : {size/1048576:.2f}MB
+Progress : {current*100 / size:.2f}%
 Source : 🌐 Telegram 🌐
 '''
-    await app.edit_message_text(chat_id, message_id, text=dmess)
+    await app.edit_message_text(chat_id=chat_id, message_id=message_id, text=dmess)

@@ -36,7 +36,7 @@ async def OCRPDF(client, message):
     dmess = f'''
 File : 🗂️ {file_name} 🗂️
 Status : Downloading...📤
-Size : {(size/1048576)}MB
+Size : {size/1048576:.2f}MB
 Progress : 0%
 Source : 🌐 Telegram 🌐
 '''
